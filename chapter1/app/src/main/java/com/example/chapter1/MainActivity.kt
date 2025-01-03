@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
             Chapter1Theme {
 
                 Greeting(
-                    "이원준입니다"
+                    "이원준입니다!"
 
                 )
 
