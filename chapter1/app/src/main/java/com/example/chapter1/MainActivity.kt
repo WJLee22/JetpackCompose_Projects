@@ -10,9 +10,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.BottomAppBar
@@ -56,9 +59,11 @@ fun Greeting(name: String) {
     Scaffold(
         floatingActionButtonPosition = FabPosition.End,
         floatingActionButton = {
-            FloatingActionButton(onClick = { },
+            FloatingActionButton(
+                onClick = { },
                 shape = CircleShape,
-                containerColor = Color.Yellow) {
+                containerColor = Color.Yellow
+            ) {
 
                 Text("클릭")
             }
@@ -74,8 +79,8 @@ fun Greeting(name: String) {
 
         bottomBar = {
             BottomAppBar(
-                contentColor = Color.Red,
-                containerColor = Color(0xFF00FF00),
+                contentColor = Color.Magenta,
+                containerColor = Color(0xFFC6EEB1),
 
                 ) {
                 Text("BottomAppBar!")
@@ -92,7 +97,7 @@ fun Greeting(name: String) {
         // Scaffold의 content 영역에 배치되는 컴포저블들은 Scaffold 내부의 padding 값을 고려하여 배치되어야 함.
         // innerPadding을 적용해야 하단바, 상단바 등등의 요소들과 겹치지 않게돠어 화면에 보임.
             innerPadding ->
-       Column(
+        Column(
             modifier = Modifier.padding(innerPadding)
         ) {
             MyComposableView() // innerPadding을 MyComposableView에 전달
@@ -104,13 +109,23 @@ fun Greeting(name: String) {
 fun MyRowItem() {
     Log.d("TAG", "MyRowItem: ")
     Row(
-        modifier = Modifier.padding(16.dp).background(Color(0xFFeaffd0)),
+        modifier = Modifier
+            .padding(10.dp)
+            .background(Color(0xFFeaffd0))
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
-    ){ // innerPadding을 Row에 적용하여 Scaffold의 padding 값을 반영
-        Text(color = Color.Blue,text = "안녕하세요?!", modifier = Modifier.padding(10.dp).background(Color(0xFFffccbc)))
-        Spacer(modifier = Modifier.size(16.dp))
+    )
+    {
+        Text(
+            color = Color.Blue,
+            text = "안녕하세요?!",
+            modifier = Modifier
+                .padding(10.dp)
+                .background(Color(0xFFffccbc))
+        )
+        Spacer(modifier = Modifier.size(10.dp))
         Text(text = "안녕하세요?!")
-        Spacer(modifier = Modifier.size(16.dp))
+        Spacer(modifier = Modifier.size(10.dp))
         Text(text = "안녕하세요?!")
     }
 }
@@ -121,7 +136,9 @@ fun MyComposableView() {
     Log.d("TAG", "MyComposableView")
 
     Column(
-        Modifier.background(Color.Green)
+        Modifier
+            .background(Color.Green)
+            .verticalScroll(rememberScrollState())
     ) {
         for (i in 0..30) {
             MyRowItem()
