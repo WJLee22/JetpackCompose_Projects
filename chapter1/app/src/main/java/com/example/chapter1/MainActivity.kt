@@ -101,41 +101,30 @@ fun Greeting(name: String) {
 }
 
 @Composable
+fun MyRowItem() {
+    Log.d("TAG", "MyRowItem: ")
+    Row(
+        modifier = Modifier.padding(16.dp).background(Color(0xFFeaffd0)),
+        verticalAlignment = Alignment.CenterVertically
+    ){ // innerPadding을 Row에 적용하여 Scaffold의 padding 값을 반영
+        Text(color = Color.Blue,text = "안녕하세요?!", modifier = Modifier.padding(10.dp).background(Color(0xFFffccbc)))
+        Spacer(modifier = Modifier.size(16.dp))
+        Text(text = "안녕하세요?!")
+        Spacer(modifier = Modifier.size(16.dp))
+        Text(text = "안녕하세요?!")
+    }
+}
+
+
+@Composable
 fun MyComposableView() {
     Log.d("TAG", "MyComposableView")
 
     Column(
         Modifier.background(Color.Green)
     ) {
-        Row(
-            modifier = Modifier.padding(16.dp).background(Color(0xFFeaffd0)),
-            verticalAlignment = Alignment.CenterVertically
-        ){ // innerPadding을 Row에 적용하여 Scaffold의 padding 값을 반영
-            Text(color = Color.Blue,text = "안녕하세요?!", modifier = Modifier.padding(10.dp).background(Color(0xFFffccbc)))
-            Spacer(modifier = Modifier.size(16.dp))
-            Text(text = "안녕하세요?!")
-            Spacer(modifier = Modifier.size(16.dp))
-            Text(text = "안녕하세요?!")
-        }
-        Row(
-            modifier = Modifier.padding(16.dp).background(Color(0xFFeaffd0)),
-            verticalAlignment = Alignment.CenterVertically
-        ){ // innerPadding을 Row에 적용하여 Scaffold의 padding 값을 반영
-            Text(color = Color.Blue,text = "안녕하세요?!", modifier = Modifier.padding(10.dp).background(Color(0xFFffccbc)))
-            Spacer(modifier = Modifier.size(16.dp))
-            Text(text = "안녕하세요?!")
-            Spacer(modifier = Modifier.size(16.dp))
-            Text(text = "안녕하세요?!")
-        }
-        Row(
-            modifier = Modifier.padding(16.dp).background(Color(0xFFeaffd0)),
-            verticalAlignment = Alignment.CenterVertically
-        ){ // innerPadding을 Row에 적용하여 Scaffold의 padding 값을 반영
-            Text(color = Color.Blue,text = "안녕하세요?!", modifier = Modifier.padding(10.dp).background(Color(0xFFffccbc)))
-            Spacer(modifier = Modifier.size(16.dp))
-            Text(text = "안녕하세요?!")
-            Spacer(modifier = Modifier.size(16.dp))
-            Text(text = "안녕하세요?!")
+        for (i in 0..30) {
+            MyRowItem()
         }
     }
 
