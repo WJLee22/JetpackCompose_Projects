@@ -1,8 +1,8 @@
 package com.example.chapter2.utils
 
 data class RandomUser(
-    val name: String = "개발하는 WJ 👨‍🎓",
-    val description: String = "오늘도 빡코딩 하고 게신가요?",
+    val name: String = "어서오세요 개발자님 👨‍💻",
+    val description: String = "오늘도 즐거운 코딩하세요 🚀",
     val profileImage: String = "https://randomuser.me/api/portraits/women/74.jpg"
     )
 object DummyDataProvider { //object 키워드 -> 싱글턴 객체 선언
