@@ -111,7 +111,7 @@ fun RandomUserListView(randomUsers: List<RandomUser>, modifier: Modifier) {
     //xml 시절의 RecyclerView와 비슷한 역할을 함. 화면에 보이는 일정 아이템들만 로드하고, 스크롤 시에만 새로운 아이템을 로드함
     LazyColumn(modifier = modifier) {
         //items(): 인자값으로 받은 리스트를 순회하면서 각 요소에 대해 람다식에 정의된 동작을 수행. LazyColumn은 items() 함수를 통해 효율적으로 리스트의 각 요소를 화면에 표시할 수 있는 것.
-        items(items = randomUsers) { randomUser ->
+        items(items = randomUsers) { randomUser ->// itemContent 람다
             RandomUserView(randomUser)
         }
     }
