@@ -36,7 +36,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun BoxWithConstraintContainer() {
 
@@ -45,15 +44,16 @@ fun BoxWithConstraintContainer() {
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        // 현재 이 컨테이너의 높이와 너비를 가져올 수 있다.
+
 
         // 디바이스의 세로-가로모드 마다 현재 이 컨테이너의 높이는 변경되기 때문에 이를 이용하여 조건을 걸어서 다른 색상의 뷰를 보여줄 수 있다.
-        if (this.minHeight > 600.dp) {
+        if (this.minHeight > 600.dp) { // 세로모드 일 때
             DummyBox(modifier = Modifier.size(200.dp), color = Color.Green)
-        } else {
+        } else { // 가로모드 일 때
             DummyBox(modifier = Modifier.size(200.dp), color = Color.Yellow)
         }
 
+        // this.minHeight: 현재 이 컨테이너의 제약조건인 높이 값을 가져올 수 있다.
         Text(text = "minHeight: ${this.minHeight}")
 
 /*
