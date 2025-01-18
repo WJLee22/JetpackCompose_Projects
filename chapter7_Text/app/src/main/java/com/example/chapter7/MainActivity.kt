@@ -40,6 +40,7 @@ import kotlin.random.Random
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 화면 꽉 채우기 제거
         //enableEdgeToEdge()
         setContent {
             Chapter7Theme {
